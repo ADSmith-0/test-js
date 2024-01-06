@@ -1,3 +1,14 @@
+// The goal for this was to create an async task queue that can handle
+// error handling and then's well. This implementation also includes the
+// pattern for making functions chainable
+//
+// keywords: async queue chain chainable
+//
+//
+// ###
+// IMPLEMENTATION 1
+// ###
+//
 // const fakePromise = () =>
 // 	new Promise((res, rej) => setTimeout(() => rej("Error!"), 5000));
 //
@@ -34,6 +45,10 @@
 // queue.push(fakePromise);
 // queue.push(fakePromise);
 
+// ###
+// IMPLEMENTATION 2
+// ###
+//
 // const addTask = (() => {
 // 	let pending = Promise.resolve();
 //
@@ -55,6 +70,10 @@
 // addTask(fakePromise).then(console.log).catch(console.err);
 // addTask(fakePromise).then(console.log).catch(console.err);
 // addTask(fakePromise).then(console.log).catch(console.err);
+
+// ###
+// IMPLEMENTATION 3
+// ###
 
 function Device() {
 	const queue = [];
